@@ -8,6 +8,7 @@ def add_task():
     }
     to_do.append(task)
     print("Added")
+    print()
 
 def view_task():
     if not to_do:
@@ -26,9 +27,17 @@ def complete_task():
         return
 
     view_task()
-    question = int(input("Which number of task did you just finish: "))
-    
-    print("Marking a task...")
+    try:
+        task_number = int(input("Which number of task did you just finish: "))
+    except ValueError:
+        print("Please enter a number")
+        return
+
+    if task_number < 1 or task_number > len(to_do):
+        print("This task number doesn't exist.")
+        return
+        
+    print("You just finished number: ", task_number)
     print()    
 
 def main_menu():
@@ -46,10 +55,12 @@ def main_menu():
             print()
         elif options == "3":
             complete_task()
+            print()
         elif options == "4":
             print("Quitting...")
             break
         else:
             print("Invalid choice, try again")
+            print()
 
 main_menu()
