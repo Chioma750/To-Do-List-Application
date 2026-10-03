@@ -19,25 +19,37 @@ def view_task():
             print (num, task["text"], '[x]')
         else:
             print (num, task["text"], '[ ]')
-add_task()
-add_task()
-print()
-view_task()
+
+def complete_task():
+    if not to_do:
+        print("You have no tasks yet. Add one to get started.")
+        return
+
+    view_task()
+    question = int(input("Which number of task did you just finish: "))
+    
+    print("Marking a task...")
+    print()    
 
 def main_menu():
     while True:
         print("1. Add a task")
         print("2. View tasks")
-        print("3. Quit")
+        print("3. Complete task")
+        print("4. Quit")
         options = input("Choose an option: ") 
 
         if options == "1":
             add_task()
         elif options == "2":
             view_task()
+            print()
         elif options == "3":
-            print("Quiting...")
+            complete_task()
+        elif options == "4":
+            print("Quitting...")
             break
         else:
             print("Invalid choice, try again")
-#print(to_do)
+
+main_menu()
