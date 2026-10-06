@@ -19,7 +19,7 @@ def view_task():
         if task["done"]:
             print (num, task["text"], '[x]')
         else:
-            print (num, task["text"], '[ ]')
+            print (num, task["text"], '[]')
 
 def complete_task():
     if not to_do:
@@ -36,8 +36,9 @@ def complete_task():
     if task_number < 1 or task_number > len(to_do):
         print("This task number doesn't exist.")
         return
-        
-    print("You just finished number: ", task_number)
+
+    position = task_number - 1 
+    print(position)       
     print()    
 
 def main_menu():
