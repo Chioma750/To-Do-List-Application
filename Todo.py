@@ -39,8 +39,20 @@ def complete_task():
 
     position = task_number - 1 
     card = to_do[position]
-    card["done"] = True       
+    card["done"] = True
+    print("The task is marked done")       
     print()    
+
+def delete_task():
+    if not to_do:
+        print("Your to-do list is empty")
+        return
+    view_task()
+    try:
+        task_number = int(input("Which number of task did want to delete: "))
+    except ValueError:
+        print("please enter a number")
+        return
 
 def main_menu():
     while True:
