@@ -53,13 +53,22 @@ def delete_task():
     except ValueError:
         print("please enter a number")
         return
+    
+    if task_number < 1 or task_number > len(to_do):
+        print("This task number does not exist.")
+        return
+
+    position = task_number - 1
+    to_do.pop(position)
+    print("Deleted!")
 
 def main_menu():
     while True:
         print("1. Add a task")
         print("2. View tasks")
         print("3. Complete task")
-        print("4. Quit")
+        print("4. Delete task")
+        print("5. Quit")
         options = input("Choose an option: ") 
 
         if options == "1":
@@ -71,6 +80,9 @@ def main_menu():
             complete_task()
             print()
         elif options == "4":
+            delete_task()
+            print()
+        elif options == "5":
             print("Quitting...")
             break
         else:
