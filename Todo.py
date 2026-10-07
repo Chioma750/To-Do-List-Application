@@ -38,7 +38,8 @@ def complete_task():
         return
 
     position = task_number - 1 
-    print(position)       
+    card = to_do[position]
+    card["done"] = True       
     print()    
 
 def main_menu():
