@@ -71,6 +71,11 @@ def save_tasks():
     with open("tasks.json", "w", encoding = "utf-8") as file:
         json.dump(to_do, file)
 
+def load_tasks():
+    with open("tasks.json", "r", encoding = "utf-8") as file:
+        json.load(file)
+        saved_task = to_do
+        to_do.extend(iterable)
 def main_menu():
     while True:
         print("1. Add a task")
