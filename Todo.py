@@ -1,3 +1,4 @@
+import json
 to_do = []
 def add_task():
     answer = input("What is your task for today: ")
@@ -8,6 +9,7 @@ def add_task():
     }
     to_do.append(task)
     print("Added")
+    save_tasks()
     print()
 
 def view_task():
@@ -40,7 +42,8 @@ def complete_task():
     position = task_number - 1 
     card = to_do[position]
     card["done"] = True
-    print("The task is marked done")       
+    print("The task is marked done")    
+    save_tasks()   
     print()    
 
 def delete_task():
@@ -61,6 +64,12 @@ def delete_task():
     position = task_number - 1
     to_do.pop(position)
     print("Deleted!")
+    save_tasks()
+    print()
+
+def save_tasks():
+    with open("tasks.json", "w", encoding = "utf-8") as file:
+        json.dump(to_do, file)
 
 def main_menu():
     while True:
