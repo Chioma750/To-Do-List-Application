@@ -72,10 +72,14 @@ def save_tasks():
         json.dump(to_do, file)
 
 def load_tasks():
-    with open("tasks.json", "r", encoding = "utf-8") as file:
-        json.load(file)
-        saved_task = to_do
-        to_do.extend(iterable)
+    try:
+        with open("tasks.json", "r", encoding = "utf-8") as file:
+            reading = json.load(file)
+            to_do.extend(reading)
+    except FileNotFoundError:
+        pass
+    load_tasks()
+
 def main_menu():
     while True:
         print("1. Add a task")
