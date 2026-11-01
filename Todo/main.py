@@ -1,5 +1,4 @@
 import json
-to_do = []
 
 def main_menu():
     while True:
