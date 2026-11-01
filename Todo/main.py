@@ -1,5 +1,3 @@
-import json
-
 def main_menu():
     while True:
         print("1. Add a task")

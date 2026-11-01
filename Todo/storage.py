@@ -1,3 +1,6 @@
+import json
+import load_tasks()
+
 to_do = []
 
 def save_tasks():
