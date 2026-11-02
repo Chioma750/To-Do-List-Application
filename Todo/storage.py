@@ -13,3 +13,5 @@ def load_tasks():
             to_do.extend(reading)
     except FileNotFoundError:
         pass
+    except json.JSONDecodeError:
+        pass
