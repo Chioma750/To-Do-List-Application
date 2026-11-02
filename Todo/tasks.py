@@ -1,3 +1,4 @@
+from storage import to_do, save_tasks
 def add_task():
     answer = input("What is your task for today: ")
 
@@ -50,9 +51,9 @@ def delete_task():
         return
     view_task()
     try:
-        task_number = int(input("Which number of task did want to delete: "))
+        task_number = int(input("Which number of task did you want to delete: "))
     except ValueError:
-        print("please enter a number")
+        print("Please enter a number")
         return
     
     if task_number < 1 or task_number > len(to_do):

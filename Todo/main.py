@@ -1,3 +1,7 @@
+from storage import load_tasks
+from tasks import add_task, view_task, complete_task, delete_task
+load_tasks()
+
 def main_menu():
     while True:
         print("1. Add a task")

@@ -1,5 +1,4 @@
 import json
-import load_tasks()
 
 to_do = []
 
@@ -14,5 +13,3 @@ def load_tasks():
             to_do.extend(reading)
     except FileNotFoundError:
         pass
-
-load_tasks()
